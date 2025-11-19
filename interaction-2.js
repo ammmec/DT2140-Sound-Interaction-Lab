@@ -50,6 +50,7 @@ wind.createDSP(audioContext, 1024)
 //------------------------------------------------------------------------------------------
 //
 //==========================================================================================
+let oldmovetimer = 0;
 
 function accelerationChange(accx, accy, accz) {
     movetimer = millis();
@@ -113,7 +114,7 @@ function playAudio() {
     if (audioContext.state === 'suspended') {
         return;
     }
-    dspNode.setParamValue("/wind/volume", 1)
+    dspNode.setParamValue("/wind/volume", 10)
     setTimeout(() => { dspNode.setParamValue("/wind/volume", 0) }, 100);
 }
 
