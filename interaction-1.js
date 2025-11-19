@@ -66,7 +66,7 @@ function mousePressed() {
 let oldmovetimer = 0;
 
 function deviceMoved() {
-    setMoveThreshold(0.3);
+    sliders[2].value(0.2);
     movetimer = millis();
     /*  vals[1] = round(accelerationX, 4);
         vals[2] = round(accelerationY, 4);
