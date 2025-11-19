@@ -58,11 +58,14 @@ function accelerationChange(accx, accy, accz) {
         (Math.abs(accy) > 4) ||
         (Math.abs(accz) > 4)) {
         statusLabels[1].style("color", "pink");
-        if (!playing) playAudio(1);
+        if (!playing) {
+            playAudio(1);
+            playing = 1;
+        }
     
     }
     else {
-        playing = 1;
+        playing = 0;
         playAudio(0);
     }
 }
