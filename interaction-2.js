@@ -54,16 +54,17 @@ let oldmovetimer = 0;
 
 function accelerationChange(accx, accy, accz) {
     movetimer = millis();
-    if ((Math.abs(accx) > 10)||
-        (Math.abs(accy) > 10) &&
-        (Math.abs(accz) > 10)) {
+    if ((Math.abs(accx) > 5)||
+        (Math.abs(accy) > 5) &&
+        (Math.abs(accz) > 5)) {
         if (movetimer - oldmovetimer > 250) {
             statusLabels[2].style("color", "pink");
-            playAudio((Math.abs(accx)+Math.abs(accy)+Math.abs(accz))*10);
+            playAudio((Math.abs(accx)+Math.abs(accy)+Math.abs(accz))*10, 100);
             oldmovetimer = movetimer;
         }
     }
     else {
+        playAudio((Math.abs(accx)+Math.abs(accy)+Math.abs(accz))*10, 0);
         oldmovetimer = movetimer + 700;
     }
 }
@@ -107,7 +108,7 @@ function getMinMaxParam(address) {
 //
 //==========================================================================================
 
-function playAudio(volume) {
+function playAudio(force, volume) {
     if (!dspNode) {
         return;
     }
@@ -115,6 +116,7 @@ function playAudio(volume) {
         return;
     }
     dspNode.setParamValue("/wind/volume", volume)
+    dspNode.setParamValue("/wind/wind/force", force)
     setTimeout(() => { dspNode.setParamValue("/wind/volume", 0) }, 100);
 }
 
