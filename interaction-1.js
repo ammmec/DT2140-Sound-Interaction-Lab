@@ -57,14 +57,14 @@ function accelerationChange(accx, accy, accz) {
     if (((accx < 8 && accx > -8)) &&
         ((accy < 8 && accy > -8)) &&
         ((accz < 8 && accz > -8))) {
-        if (movetimer - oldmovetimer > 50) {
+        //if (movetimer - oldmovetimer > 50) {
             statusLabels[2].style("color", "pink");
             playAudio();
             oldmovetimer = movetimer;
-        }
+        //}
     }
     else {
-        oldmovetimer = movetimer + 500;
+        //oldmovetimer = movetimer + 500;
     }
 }
 
