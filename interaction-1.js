@@ -54,9 +54,9 @@ let oldmovetimer = 0;
 
 function accelerationChange(accx, accy, accz) {
     movetimer = millis();
-    if (((accx < 8 && accx > 0.2) || (accx > -8 && accx < -0.2)) &&
-        ((accy < 8 && accy > 0.2) || (accy > -8 && accy < -0.2)) &&
-        ((accz < 8 && accz > 0.2) || (accz > -8 && accz < -0.2))) {
+    if (((accx < 6 && accx > 0.3) || (accx > -6 && accx < -0.3)) &&
+        ((accy < 6 && accy > 0.3) || (accy > -6 && accy < -0.3)) &&
+        ((accz < 6 && accz > 0.3) || (accz > -6 && accz < -0.3))) {
         if (movetimer - oldmovetimer > 500) {
             statusLabels[2].style("color", "pink");
             playAudio();
@@ -64,7 +64,7 @@ function accelerationChange(accx, accy, accz) {
         }
     }
     else {
-        oldmovetimer = movetimer + 500;
+        oldmovetimer = movetimer + 700;
     }
 }
 
