@@ -1,0 +1,11 @@
+1. small movements   -> bubbles
+      We imagined that the phone is a small creature,
+      and when it is gendly moved it reacts playfully with a bubble like sound. It does not like big movements.
+
+2. pointing entrance -> engine
+      We imagined a cleaning robot that can be instructed to leave.
+      When pointing towards the door, it leaves, stopping the engine sound.
+
+3. Handheld, detect only large movements   ->     wind
+      We imagined that the phone is a pretend sword,
+      so whenever it is moved in a big way it plays a wind sound because it's "cutting through the wind".
