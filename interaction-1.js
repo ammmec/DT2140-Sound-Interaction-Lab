@@ -50,9 +50,25 @@ bubble.createDSP(audioContext, 1024)
 //------------------------------------------------------------------------------------------
 //
 //==========================================================================================
+let oldmovetimer = 0;
+
+ 3 -  0.4
+-3 - -0.4
 
 function accelerationChange(accx, accy, accz) {
-    // playAudio()
+    movetimer = millis();
+    if (((accx < 3 && accx > 0.4) || (accx > -3 && accx < -0.4)) &&
+        ((accy < 3 && accy > 0.4) || (accy > -3 && accy < -0.4)) &&
+        ((accz < 3 && accz > 0.4) || (accz > -3 && accz < -0.4))) {
+        if (movetimer - oldmovetimer > 250) {
+            statusLabels[2].style("color", "pink");
+            playAudio();
+            oldmovetimer = movetimer;
+        }
+    }
+    else {
+        oldmovetimer = movetimer + 500;
+    }
 }
 
 function rotationChange(rotx, roty, rotz) {
@@ -63,29 +79,8 @@ function mousePressed() {
     // Use this for debugging from the desktop!
 }
 
-let oldmovetimer = 0;
 
 function deviceMoved() {
-    threshVals[2] = sliders[2].value(0.3);
-    setMoveThreshold(threshVals[2]);
-
-    movetimer = millis();
-    /*  vals[1] = round(accelerationX, 4);
-        vals[2] = round(accelerationY, 4);
-        vals[3] = round(accelerationZ, 4);
-    */
-    if ((vals[1] < 3 && vals[1] > -3) &&
-         vals[2] < 3 && vals[2] > -3 &&
-         vals[3] < 3 && vals[3] > -3) {
-        if (movetimer - oldmovetimer > 250) {
-            statusLabels[2].style("color", "pink");
-            playAudio();
-            oldmovetimer = movetimer;
-        }
-    }
-    else {
-        oldmovetimer = movetimer + 500;
-    }
 }
 
 function deviceTurned() {
