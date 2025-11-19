@@ -52,14 +52,11 @@ bubble.createDSP(audioContext, 1024)
 //==========================================================================================
 let oldmovetimer = 0;
 
- 3 -  0.4
--3 - -0.4
-
 function accelerationChange(accx, accy, accz) {
     movetimer = millis();
-    if (((accx < 3 && accx > 0.4) || (accx > -3 && accx < -0.4)) &&
-        ((accy < 3 && accy > 0.4) || (accy > -3 && accy < -0.4)) &&
-        ((accz < 3 && accz > 0.4) || (accz > -3 && accz < -0.4))) {
+    if (((accx < 3 && accx > 0.2) || (accx > -3 && accx < -0.2)) &&
+        ((accy < 3 && accy > 0.2) || (accy > -3 && accy < -0.2)) &&
+        ((accz < 3 && accz > 0.2) || (accz > -3 && accz < -0.2))) {
         if (movetimer - oldmovetimer > 250) {
             statusLabels[2].style("color", "pink");
             playAudio();
