@@ -50,6 +50,7 @@ wind.createDSP(audioContext, 1024)
 //------------------------------------------------------------------------------------------
 //
 //==========================================================================================
+let playing = 0;
 
 function accelerationChange(accx, accy, accz) {
     movetimer = millis();
@@ -57,10 +58,11 @@ function accelerationChange(accx, accy, accz) {
         (Math.abs(accy) > 4) ||
         (Math.abs(accz) > 4)) {
         statusLabels[1].style("color", "pink");
-        playAudio(1);
+        if (!playing) playAudio(1);
     
     }
     else {
+        playing = 1;
         playAudio(0);
     }
 }
