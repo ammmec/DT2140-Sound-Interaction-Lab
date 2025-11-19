@@ -63,10 +63,15 @@ function mousePressed() {
     // Use this for debugging from the desktop!
 }
 
+let oldmovetimer = 0;
+
 function deviceMoved() {
     movetimer = millis();
     statusLabels[2].style("color", "pink");
-    playAudio();
+    if (movetimer - oldmovetimer > 500) {
+        playAudio();
+        oldmovetimer = movetimer;
+    }
 }
 
 function deviceTurned() {
