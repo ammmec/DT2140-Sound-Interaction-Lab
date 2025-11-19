@@ -50,22 +50,18 @@ wind.createDSP(audioContext, 1024)
 //------------------------------------------------------------------------------------------
 //
 //==========================================================================================
-let oldmovetimer = 0;
 
 function accelerationChange(accx, accy, accz) {
     movetimer = millis();
     if ((Math.abs(accx) > 4) ||
         (Math.abs(accy) > 4) ||
         (Math.abs(accz) > 4)) {
-        if (movetimer - oldmovetimer > 250) {
-            statusLabels[1].style("color", "pink");
-            playAudio((Math.abs(accx)+Math.abs(accy)+Math.abs(accz))*10, 100);
-            oldmovetimer = movetimer;
-        }
+        statusLabels[1].style("color", "pink");
+        playAudio(1);
+    
     }
     else {
-        playAudio((Math.abs(accx)+Math.abs(accy)+Math.abs(accz))*10, 0);
-        oldmovetimer = movetimer + 700;
+        playAudio(0);
     }
 }
 
@@ -108,7 +104,7 @@ function getMinMaxParam(address) {
 //
 //==========================================================================================
 
-function playAudio(force, volume) {
+function playAudio(volume) {
     if (!dspNode) {
         return;
     }
@@ -116,7 +112,6 @@ function playAudio(force, volume) {
         return;
     }
     dspNode.setParamValue("/wind/volume", volume)
-    dspNode.setParamValue("/wind/wind/force", force)
     setTimeout(() => { dspNode.setParamValue("/wind/volume", 0) }, 100);
 }
 
