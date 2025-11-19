@@ -66,11 +66,22 @@ function mousePressed() {
 let oldmovetimer = 0;
 
 function deviceMoved() {
+    threshVals[2] = 0.2;
     movetimer = millis();
     statusLabels[2].style("color", "pink");
-    if (movetimer - oldmovetimer > 500) {
-        playAudio();
-        oldmovetimer = movetimer;
+    if (movetimer - oldmovetimer > 250) {
+        /*  vals[1] = round(accelerationX, 4);
+            vals[2] = round(accelerationY, 4);
+            vals[3] = round(accelerationZ, 4);
+        */
+        if (vals[1] < 3 && vals[1] > -3) {
+            if (vals[2] < 3 && vals[2] > -3) {
+                if (vals[3] < 3 && vals[3] > -3) {
+                    playAudio();
+                    oldmovetimer = movetimer;
+                }
+            }
+        }
     }
 }
 
