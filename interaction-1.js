@@ -57,7 +57,7 @@ function accelerationChange(accx, accy, accz) {
     if (((Math.abs(accx) < 10 && Math.abs(accx) > 0.3)) &&
         ((Math.abs(accy) < 10 && Math.abs(accy) > 0.3)) &&
         ((Math.abs(accz) < 10 && Math.abs(accz) > 0.3))) {
-        if (movetimer - oldmovetimer > 500) {
+        if (movetimer - oldmovetimer > 250) {
             statusLabels[2].style("color", "pink");
             playAudio();
             oldmovetimer = movetimer;
