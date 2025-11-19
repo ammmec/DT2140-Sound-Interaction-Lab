@@ -54,10 +54,10 @@ let oldmovetimer = 0;
 
 function accelerationChange(accx, accy, accz) {
     movetimer = millis();
-    if (((accx < 8 && accx > 0.1) || (accx > -8 && accx < -0.1)) &&
-        ((accy < 8 && accy > 0.1) || (accy > -8 && accy < -0.1)) &&
-        ((accz < 8 && accz > 0.1) || (accz > -8 && accz < -0.1))) {
-        if (movetimer - oldmovetimer > 250) {
+    if (((accx < 8 && accx > 0.2) || (accx > -8 && accx < -0.2)) &&
+        ((accy < 8 && accy > 0.2) || (accy > -8 && accy < -0.2)) &&
+        ((accz < 8 && accz > 0.2) || (accz > -8 && accz < -0.2))) {
+        if (movetimer - oldmovetimer > 500) {
             statusLabels[2].style("color", "pink");
             playAudio();
             oldmovetimer = movetimer;
