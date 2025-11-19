@@ -64,7 +64,7 @@ function accelerationChange(accx, accy, accz) {
         }
     }
     else {
-        oldmovetimer = movetimer + 700;
+        //oldmovetimer = movetimer + 700;
     }
 }
 
