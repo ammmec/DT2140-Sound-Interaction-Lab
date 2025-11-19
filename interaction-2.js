@@ -59,7 +59,7 @@ function accelerationChange(accx, accy, accz) {
         (Math.abs(accz) > 10)) {
         if (movetimer - oldmovetimer > 250) {
             statusLabels[2].style("color", "pink");
-            playAudio();
+            playAudio((Math.abs(accx)+Math.abs(accy)+Math.abs(accz))*10);
             oldmovetimer = movetimer;
         }
     }
@@ -107,14 +107,14 @@ function getMinMaxParam(address) {
 //
 //==========================================================================================
 
-function playAudio() {
+function playAudio(volume) {
     if (!dspNode) {
         return;
     }
     if (audioContext.state === 'suspended') {
         return;
     }
-    dspNode.setParamValue("/wind/volume", 10)
+    dspNode.setParamValue("/wind/volume", volume)
     setTimeout(() => { dspNode.setParamValue("/wind/volume", 0) }, 100);
 }
 

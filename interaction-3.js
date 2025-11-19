@@ -62,6 +62,7 @@ function accelerationChange(accx, accy, accz) {
         }
     }
     else {
+        
         oldmovetimer = movetimer + 700;
     }
 }
@@ -113,8 +114,8 @@ function playAudio(pressure) {
     if (audioContext.state === 'suspended') {
         return;
     }
-    console.log(pressure)
-    dspNode.setParamValue("/brass/blower/pressure", pressure)
+    dspNode.setParamValue("/torpedo/trigger", 1)
+    setTimeout(() => { dspNode.setParamValue("/torpedo/trigger", 0) }, 100);
 }
 
 //==========================================================================================
