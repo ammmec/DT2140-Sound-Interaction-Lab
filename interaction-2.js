@@ -59,7 +59,7 @@ function accelerationChange(accx, accy, accz) {
         (Math.abs(accz) > 4)) {
         statusLabels[1].style("color", "pink");
         if (!playing) {
-            playAudio(1);
+            playAudio(1, (Math.abs(accx)/10+Math.abs(accy)/10+Math.abs(accz)/10));
             playing = 1;
         }
     
@@ -109,7 +109,7 @@ function getMinMaxParam(address) {
 //
 //==========================================================================================
 
-function playAudio(volume) {
+function playAudio(volume, force) {
     if (!dspNode) {
         return;
     }
@@ -117,7 +117,7 @@ function playAudio(volume) {
         return;
     }
     dspNode.setParamValue("/wind/volume", volume)
-    //setTimeout(() => { dspNode.setParamValue("/wind/volume", 0) }, 100);
+    dspNode.setParamValue("/wind/wind/force", force)
 }
 
 //==========================================================================================
