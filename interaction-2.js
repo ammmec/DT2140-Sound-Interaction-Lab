@@ -117,7 +117,7 @@ function playAudio(volume) {
         return;
     }
     dspNode.setParamValue("/wind/volume", volume)
-    setTimeout(() => { dspNode.setParamValue("/wind/volume", 0) }, 100);
+    //setTimeout(() => { dspNode.setParamValue("/wind/volume", 0) }, 100);
 }
 
 //==========================================================================================
