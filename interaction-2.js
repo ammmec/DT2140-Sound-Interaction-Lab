@@ -117,7 +117,7 @@ function playAudio(volume, force) {
         return;
     }
     dspNode.setParamValue("/wind/volume", volume)
-    dspNode.setParamValue("/wind/wind/force", force)
+    // dspNode.setParamValue("/wind/wind/force", force)
 }
 
 //==========================================================================================
